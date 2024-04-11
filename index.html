@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function usernameBorder(){
+            let x = document.getElementById("username").value
+            if (x == ""){
+                document.getElementById("username").style.borderColor="red"
+            }
+            else {
+                document.getElementById("username").style.borderColor="lime"
+            }
+        }
+        function passwordBorder(){
+            let x = document.getElementById("password").value
+            if (x == ""){
+                document.getElementById("password").style.borderColor="red"
+            }
+            else {
+                document.getElementById("password").style.borderColor="lime"
+            }
+        }
+        function genderBorder(){
+            let x = document.getElementById("gender").value
+            if (x == "Did not select"){
+                document.getElementById("gender").style.borderColor="red"
+            }
+            else {
+                document.getElementById("gender").style.borderColor="lime"
+            }
+        }
+        function output(){
+            var username = document.getElementById("username").value
+            var password = document.getElementById("password").value
+            var gender = document.getElementById("gender").value
+            var userOut = "Username: " + username
+            var passOut = "Password: " + password
+            var genderOut = "Gender: " + gender
+            document.getElementById("userOut").innerHTML = userOut
+            document.getElementById("passOut").innerHTML = passOut
+            document.getElementById("genderOut").innerHTML = genderOut
+        }
+        function resetForm(){
+            document.getElementById("userOut").innerHTML = ""
+            document.getElementById("passOut").innerHTML = ""
+            document.getElementById("genderOut").innerHTML = ""
+            document.getElementById("username").style.borderColor="black"
+            document.getElementById("password").style.borderColor="black"
+            document.getElementById("gender").style.borderColor="black"
+        }
+    </script>
+    <form action="index.html" id="signup" onsubmit="return false">
+        <fieldset form="login">
+            <legend>Sign-up Sheet</legend>
+
+            <label for="username">Username</label><br>
+            <input type="text" id="username" name="username" onblur="usernameBorder()"><br><br>
+            <label for="password">Password</label><br>
+            <input type="password" id="password" name="password" onblur="passwordBorder()"><br><br>
+            <label for="gender">Gender</label><br>
+            <select name="gender" id="gender" onblur="genderBorder()">
+                <option value="Did not select">Please select an option</option>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+                <option value="Prefer not to mention">Prefer not to mention</option>
+            </select><br><br>
+            <input type="submit" value="Submit" onclick="output()">
+            <input type="reset" value="Reset" onclick="resetForm()">
+        </fieldset>
+    </form>
+    <p id="userOut"></p>
+    <p id="passOut"></p>
+    <p id="genderOut"></p>
+</body>
+</html>
